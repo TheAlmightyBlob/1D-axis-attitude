@@ -25,7 +25,33 @@ The plot of \theta will look like a sine wave, if theta0 = 0
 If inertia is doubled, \tau will also require to be doubled for the same rate of change of angular velocity.
 Bigger Kp will mean a faster oscillation
 
-Observations 16:17:
+Observations (16:17):
 When the target angle is 0, theta and omega are straight line graphs, as the satellite does not need to rotate to reach the target angle.
 Otherwise, regardless of target angle, omega and theta oscillate in the same manner but with different amplitudes, 
 as a frictionless system repeats forever.
+
+Next step: implement damping (PD Controller)
+
+Predictions:
+Angular velocity and theta will level off after a set amount of time, depending on the damping ratio. 
+A larger damping ratio would have a greater effect and cause angular velocity to level off sooner.
+
+ratio < 0 energy is being supplied instead of removed
+
+ratio = 0 there is no damping
+
+0 < ratio < 1 is underdamped, with higher values meaning stronger damping, and so the target angle is reached faster.
+lower values oscillate more and take longer to reach the target angle
+
+ratio = 1 leads to the system reaching the target angle with the best balance between oscillation and time (lowest oscillation for shortest time)
+
+ratio > 1 overdamped and system oscillates for a long time
+
+Observations:
+Predictions are generally correct, with the exception of when the ratio > 1
+The system does not oscillate in this case and instead very slowly progresses towards the target angle.
+This is likely due to a damping ratio > 1 causing the system to brake too strongly, leading to a very slow movement.
+
+Additionally, when ratio = 1, it is not only the best balance between oscillation and time, but there is no oscillation whatsoever, 
+on top of the target angle being reached very quickly
+results for a ratio = 1 were theta = 0.52 rad being reached in approx 5 seconds.
