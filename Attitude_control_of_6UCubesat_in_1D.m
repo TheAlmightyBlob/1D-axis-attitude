@@ -1,13 +1,14 @@
-A_4U = 0.02; %m^2
-m_4U = 6; %kg
-I_4U = 0.12; %kg.m^2
+
+A_6U = 0.02; %m^2
+m_6U = 6; %kg
+I_6U = 0.12; %kg.m^2
 Kp = 0.1; %gain of Proportional controller in N.m/rad
 Kd = 0.2; %damping gain in N.m.s/rad - how strongly fast changes are resisted/damped 
 
 theta0 = 0; omega0 = 0; torque0 = 0;
 target_theta = 0.52;
 
-params.A_6U=A_4U; params.m_6U=m_4U; params.I=I_4U; params.Kp=Kp; params.Kd=Kd;
+params.A_6U=A_6U; params.m_6U=m_6U; params.I=I_6U; params.Kp=Kp; params.Kd=Kd;
 params.theta0 = theta0; params.omega0 = omega0; params.tau0 = torque0;
 params.t_theta = target_theta;
 
@@ -24,8 +25,8 @@ yline(target_theta,'r--');  legend("\theta","Target Angle = 0.52 rad",'Location'
 figure; %[output:13a77e25]
 plot(t,st(:,2),'r') %[output:13a77e25]
 xlabel("Time (s)"); ylabel("Angular Velocity \omega (rad/s)"); legend("\omega") %[output:13a77e25]
-w_n = sqrt(Kp/I_4U) %[output:247f43e8]
-damp_ratio = Kd/(2*sqrt(I_4U*Kp)) %[output:43784a3b]
+w_n = sqrt(Kp/I_6U) %[output:247f43e8]
+damp_ratio = Kd/(2*sqrt(I_6U*Kp)) %[output:43784a3b]
 
 % time from 10% to 90% of target angle reached
 % rise time
